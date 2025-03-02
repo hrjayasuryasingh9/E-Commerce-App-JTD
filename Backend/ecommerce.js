@@ -73,7 +73,7 @@ app.post("/registration", async (req, res) => {
     const userId = result.rows[0].id;
 
     // Generate a verification link (you can pass user ID or email)
-    const verificationLink = `http://localhost:3005/verify?email=${encodeURIComponent(
+    const verificationLink = `https://e-commerce-app-jtd.onrender.com/verify?email=${encodeURIComponent(
       email
     )}`;
 
