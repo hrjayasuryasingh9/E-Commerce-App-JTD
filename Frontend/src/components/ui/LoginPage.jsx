@@ -20,7 +20,7 @@ function LoginPage() {
 
     try {
       const response = await fetch(
-        "https://e-commerce-app-jtd.onrender.com/login",
+        "https://e-commerce-app-jtd-y1b1.onrender.com/login",
         {
           method: "POST",
           headers: {
