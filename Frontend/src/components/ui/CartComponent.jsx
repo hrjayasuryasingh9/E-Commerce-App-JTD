@@ -15,7 +15,7 @@ function CartComponent() {
       const userId = user.userId;
 
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/getcartproducts/${userId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/getcartproducts/${userId}`,
         {
           method: "GET",
           headers: {
@@ -65,7 +65,7 @@ function CartComponent() {
       const userId = user.userId;
       try {
         const response = await fetch(
-          `https://e-commerce-app-jtd.onrender.com/user/addorder/${product.seller}/${product.id}/${userId}`,
+          `https://e-commerce-app-jtd-y1b1.onrender.com/user/addorder/${product.seller}/${product.id}/${userId}`,
           {
             method: "POST",
             headers: {
@@ -101,7 +101,7 @@ function CartComponent() {
       }
 
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/removecartitem/${cartId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/removecartitem/${cartId}`,
         {
           method: "DELETE",
           headers: {
