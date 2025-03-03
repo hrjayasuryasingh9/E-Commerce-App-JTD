@@ -9,7 +9,7 @@ const ProductForm = ({ product, onSave, onCancel }) => {
   const [category, setCategory] = useState("");
   const [sizes, setSizes] = useState([]);
   const [api, setApi] = useState(
-    "https://e-commerce-app-jtd.onrender.com/Seller/product/add"
+    "https://e-commerce-app-jtd-y1b1.onrender.com/Seller/product/add"
   );
   const [method, setMethod] = useState("POST");
   const userdata = JSON.parse(localStorage.getItem("user"));
@@ -24,7 +24,7 @@ const ProductForm = ({ product, onSave, onCancel }) => {
       setCategory(product.Category || "");
       setSizes(product.Sizes || []);
       setApi(
-        `https://e-commerce-app-jtd.onrender.com/seller/editproduct/${product.Product_id}`
+        `https://e-commerce-app-jtd-y1b1.onrender.com/seller/editproduct/${product.Product_id}`
       ); // ✅ Fixed URL
       setMethod("PATCH");
     }
