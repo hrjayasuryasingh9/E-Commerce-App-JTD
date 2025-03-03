@@ -20,7 +20,7 @@ function MainComponent() {
   const getProducts = async () => {
     try {
       const response = await fetch(
-        "https://e-commerce-app-jtd.onrender.com/user/getproducts/",
+        "https://e-commerce-app-jtd-y1b1.onrender.com/user/getproducts/",
         {
           method: "GET",
           headers: {
@@ -92,7 +92,7 @@ function MainComponent() {
       const userId = user.userId; // Extract userId from stored user data
 
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/addtocart/${prodId}/${userId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/addtocart/${prodId}/${userId}`,
         {
           method: "POST",
           headers: {
@@ -127,7 +127,7 @@ function MainComponent() {
       const userId = user.userId; // Extract userId from stored user data
 
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/addtowishlist/${prodId}/${userId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/addtowishlist/${prodId}/${userId}`,
         {
           method: "POST",
           headers: {
