@@ -13,7 +13,7 @@ const ProductCard2 = () => {
   const fetchOrders = async () => {
     try {
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/getwishlistproducts/${userId}`
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/getwishlistproducts/${userId}`
       );
       if (!response.ok) throw new Error("Failed to fetch orders");
 
@@ -39,7 +39,7 @@ const ProductCard2 = () => {
 
     try {
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/removewishlistitem/${orderId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/removewishlistitem/${orderId}`,
         {
           method: "DELETE",
           headers: {
@@ -63,7 +63,7 @@ const ProductCard2 = () => {
 
     try {
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/addtocart/${Product_id}/${userId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/addtocart/${Product_id}/${userId}`,
         {
           method: "POST",
           headers: {
