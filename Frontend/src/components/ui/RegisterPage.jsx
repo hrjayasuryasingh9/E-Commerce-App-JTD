@@ -23,7 +23,7 @@ function RegisterPage() {
 
     try {
       const response = await fetch(
-        "https://e-commerce-app-jtd.onrender.com/registration",
+        "https://e-commerce-app-jtd-y1b1.onrender.com/registration",
         {
           method: "POST",
           headers: {
