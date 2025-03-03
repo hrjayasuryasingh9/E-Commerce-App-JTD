@@ -257,7 +257,7 @@ const ProductCard = () => {
 
     try {
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/seller/editproductstatus/${orderId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/seller/editproductstatus/${orderId}`,
         {
           method: "PATCH",
           headers: {
@@ -286,7 +286,7 @@ const ProductCard = () => {
 
     try {
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/seller/editproductstatus/${orderId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/seller/editproductstatus/${orderId}`,
         {
           method: "PATCH",
           headers: {
