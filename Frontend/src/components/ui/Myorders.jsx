@@ -13,7 +13,7 @@ const ProductCard = () => {
   const fetchOrders = async () => {
     try {
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/getorders/${userId}`
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/getorders/${userId}`
       );
       if (!response.ok) throw new Error("Failed to fetch orders");
 
@@ -38,7 +38,7 @@ const ProductCard = () => {
 
     try {
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/user/deleteorder/${orderId}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/user/deleteorder/${orderId}`,
         {
           method: "DELETE",
           headers: {
