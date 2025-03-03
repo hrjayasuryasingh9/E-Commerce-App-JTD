@@ -18,7 +18,7 @@ const MainPage = () => {
     try {
       console.log("entered Fectching");
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/seller/getproducts/${seller_id}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/seller/getproducts/${seller_id}`,
         {
           method: "GET",
           headers: {
@@ -67,7 +67,7 @@ const MainPage = () => {
   const handleDeleteProduct = async (id) => {
     try {
       const response = await fetch(
-        `https://e-commerce-app-jtd.onrender.com/seller/deleteproduct/${id}`,
+        `https://e-commerce-app-jtd-y1b1.onrender.com/seller/deleteproduct/${id}`,
         {
           method: "DELETE",
         }
