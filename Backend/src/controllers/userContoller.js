@@ -89,7 +89,11 @@ const userLogin = async (req, res) => {
         .status(404)
         .json({ message: "No user found with the specified email" });
     }
-
+        if (userdata.is_verified == false) {
+      return res
+        .status(404)
+        .json({ message: "Please verify your email before login." });
+    }
     console.log(password, userdata.password_hash);
     const isPasswordCorrect = await bcrypt.compare(
       password,
