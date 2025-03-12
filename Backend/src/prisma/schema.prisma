@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = process.env.DBURL
+}
+
+model all_users_data {
+  id                                      Int        @id @default(autoincrement())
+  name                                    String     @db.VarChar(100)
+  email                                   String     @unique @db.VarChar(255)
+  password_hash                           String     @db.VarChar(255)
+  role                                    String     @db.VarChar(255)
+  verification_token                      String     @db.VarChar(255)    
+  is_verified                             Boolean?   @default(false)
+  created_at                              DateTime?  @default(now()) @db.Timestamp(6)
+  cart                                    cart[]     @relation("fk_cart_user")
+  orders_orders_seller_idToall_users_data orders[]   @relation("orders_seller_idToall_users_data")
+  orders_orders_user_idToall_users_data   orders[]   @relation("orders_user_idToall_users_data")
+  products                                products[]
+  wishlist                                wishlist[] @relation("fk_wishlist_user")
+}
+
+model products {
+  id             Int             @id @default(autoincrement())
+  seller_id      Int?
+  name           String          @db.VarChar(255)
+  description    String?
+  category       String          @db.VarChar(100)
+  price          Decimal         @db.Decimal(10, 2)
+  stock          Int             @default(0)
+  sizes          Json?           @default("[]") @db.Json
+  image          String?         @db.VarChar(255)
+  created_at     DateTime?       @default(now()) @db.Timestamp(6)
+  cart           cart[]          @relation("fk_cart_product")
+  orders         orders[]
+  all_users_data all_users_data? @relation(fields: [seller_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  wishlist       wishlist[]      @relation("fk_wishlist_product")
+}
+
+model cart {
+  id         Int            @id @default(autoincrement())
+  pid        Int
+  uid        Int
+  created_at DateTime?      @default(now()) @db.Timestamp(6)
+  product    products       @relation("fk_cart_product", fields: [pid], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_product")
+  user       all_users_data @relation("fk_cart_user", fields: [uid], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_user")
+}
+
+model wishlist {
+  id         Int            @id @default(autoincrement())
+  pid        Int
+  uid        Int
+  created_at DateTime?      @default(now()) @db.Timestamp(6)
+  product    products       @relation("fk_wishlist_product", fields: [pid], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_product")
+  user       all_users_data @relation("fk_wishlist_user", fields: [uid], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_user")
+}
+
+model orders {
+  order_id                                        Int            @id @default(autoincrement())
+  product_id                                      Int
+  user_id                                         Int
+  seller_id                                       Int
+  quantity                                        Int 
+  status                                          String         @default("Pending") @db.VarChar(20)
+  created_at                                      DateTime?      @default(now()) @db.Timestamp(6)
+  updated_at                                      DateTime?      @default(now()) @db.Timestamp(6)
+  products                                        products       @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_product")
+  all_users_data_orders_seller_idToall_users_data all_users_data @relation("orders_seller_idToall_users_data", fields: [seller_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_seller")
+  all_users_data_orders_user_idToall_users_data   all_users_data @relation("orders_user_idToall_users_data", fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_user")
+}
+
