@@ -31,7 +31,7 @@ const userRegistration = async (req, res) => {
       is_verified,
       verificationToken
     );
-    const verificationLink = `http://localhost:3005/api/user/verify?token=${verificationToken}`;
+    const verificationLink = `https://e-commerce-app-jtd-b0ky.onrender.com/api/user/verify?token=${verificationToken}`;
     const mailOptions = {
       from: '"Your App" <hrjayasuryasingh@gmail.com>',
       to: email,
